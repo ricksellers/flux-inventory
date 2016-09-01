@@ -2,17 +2,17 @@
   <div class="inv-list">
     <ul>
         <li v-for="item in invItems">
-          <p><b>Item ID:</b> {{ item.itemID }}</p>
-          <p>Item Name: {{ item.itemName }}</p>
-          <p>Item Model Number: {{ item.itemModelNumber }}</p>
-          <p>{{ item.itemMaker }}</p>
-          <p>{{ item.itemDescription }}</p>
-          <p>{{ item.itemPurchasePrice }}</p>
-          <p>{{ item.itemPurchaseDate }}</p>
-          <p>{{ item.itemSerialNumber }}</p>
-          <p>{{ item.itemImages }}</p>
-          <p>{{ item.category}}</p>
-          <p>{{ item.itemTags}}</p>
+          <p><b>ID:</b> {{ item.itemID }}</p>
+          <p><b>Item Name:</b> {{ item.itemName }}</p>
+          <p><b>Model Number:</b> {{ item.itemModelNumber }}</p>
+          <p><b>Make/Model: </b>{{ item.itemMaker }}</p>
+          <p><b>Item Description: </b>{{ item.itemDescription }}</p>
+          <p><b>Purchase Price: </b>{{ item.itemPurchasePrice }}</p>
+          <p><b>Purchse Date: </b>{{ item.itemPurchaseDate }}</p>
+          <p><b>Serial Number: </b>{{ item.itemSerialNumber }}</p>
+          <p><b>Images: </b>{{ item.itemImages }}</p>
+          <p><b>Categories: </b>{{ item.category}}</p>
+          <p><b>Tags: </b>{{ item.itemTags}}</p>
         </li>
     </ul>
   </div>
@@ -45,6 +45,10 @@ export default {
 <style scoped>
 h1 {
   color: #42b983;
+}
+
+b {
+    font-family: 'Raleway', sans-serif;
 }
 
 li {

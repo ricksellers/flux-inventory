@@ -1,24 +1,16 @@
 <template>
   <div id="app">
-  <h1><ui-icon icon="dashboard"></ui-icon>Flux Inventory</h1>
-  <div class="group">
-    <ui-toolbar type="colored" text-color="white" flat loading>
-      <div slot="actions">
-          <ui-icon-button type="clear" color="white" icon="arrow_back"></ui-icon-button>
+    <h1><ui-icon icon="dashboard"></ui-icon>Flux Inventory</h1>
+    <ui-fab type="mini" color="primary" icon="add"></ui-fab>
+    <ui-tabs type="icon-and-text" fullwidth>
+      <ui-tab icon="book" header="Cat1">
+        <list></list>
+      </ui-tab>
     
-          <ui-icon-button type="clear" color="white" icon="star_border"></ui-icon-button>
-    
-          <ui-icon-button
-              type="clear" color="white" icon="more_vert" has-dropdown-menu
-              :menu-options="menu" dropdown-position="bottom right"
-              >
-          </ui-icon-button>
-      </div>
-    
-      Inbox
-    </ui-toolbar>
-    </div>
-    <list></list>
+      <ui-tab icon="person" header="Cat2">
+        <list></list>
+      </ui-tab>
+    </ui-tabs>
   </div>
 </template>
 
