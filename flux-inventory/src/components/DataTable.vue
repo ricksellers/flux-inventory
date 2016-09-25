@@ -5,7 +5,7 @@
         <th v-for="key in columns"
           @click="sortBy(key)"
           :class="{active: sortKey == key}">
-          {{key | capitalize}}
+          {{key | columnDisplayTransform | capitalize}}
           <span class="arrow"
             :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
@@ -40,41 +40,18 @@ export default {
     })
     return {
       sortKey: '',
-      sortOrders: sortOrders,
-      invItems: [
-        {
-          itemID: 0,
-          itemName: 'Supermoon Guitar Pedal',
-          itemModelNumber: 'MBSM1487',
-          itemMaker: 'Mr. Black',
-          itemDescription: 'Supermoon Modulated Reverberator guitar pedal. This pedal is handmade by Mr. Black in Portland, Oregon, USA.',
-          itemPurchasePrice: 249.00,
-          itemPurchaseDate: '06/14/2015',
-          itemSerialNumber: 'N/A',
-          itemImages: ['test.jpg', 'test2.jpg'],
-          category: 'instruments',
-          itemTags: ['music', 'guitar', 'pedal', 'supermoon', 'mr. black']
-        },
-        {
-          itemID: 1,
-          itemName: 'Supermoon Guitar Pedal2',
-          itemModelNumber: 'MBSM1487',
-          itemMaker: 'Mr. Black',
-          itemDescription: 'Supermoon Modulated Reverberator guitar pedal. This pedal is handmade by Mr. Black in Portland, Oregon, USA.',
-          itemPurchasePrice: 249.00,
-          itemPurchaseDate: '06/14/2015',
-          itemSerialNumber: 'N/A',
-          itemImages: ['test.jpg', 'test2.jpg'],
-          category: 'instruments',
-          itemTags: ['music', 'guitar', 'pedal', 'supermoon', 'mr. black']
-        }
-      ]
+      sortOrders: sortOrders
     }
   },
   methods: {
     sortBy: function (key) {
       this.sortKey = key
       this.sortOrders[key] = this.sortOrders[key] * -1
+    }
+  },
+  filters: {
+    columnDisplayTransform: function (value) {
+      return value.replace(/([A-Z]+)/g, ',$1').replace(/^,/, '').replace(/,/g, ' ')
     }
   }
 }

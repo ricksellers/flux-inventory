@@ -4,8 +4,8 @@
       Search <input name="query" v-model="searchQuery">
     </form>
     <data-table
-      :data="gridData"
-      :columns="gridColumns"
+      :data="invItems"
+      :columns="invColumns"
       :filter-key="searchQuery">
     </data-table>
   </div>
@@ -20,16 +20,42 @@ export default {
   },
   data () {
     return {
-      data: {
-        searchQuery: '',
-        gridColumns: ['name', 'power'],
-        gridData: [
-          { name: 'Chuck Norris', power: Infinity },
-          { name: 'Bruce Lee', power: 9000 },
-          { name: 'Jackie Chan', power: 7000 },
-          { name: 'Jet Li', power: 8000 }
-        ]
-      }
+      searchQuery: '',
+      invColumns: [
+        'itemID',
+        'itemName',
+        'itemDateAdded'
+      ],
+      invItems: [
+        {
+          itemID: 0,
+          itemName: 'Supermoon Guitar Pedal',
+          itemModelNumber: 'MBSM1487',
+          itemMaker: 'Mr. Black',
+          itemDescription: 'Supermoon Modulated Reverberator guitar pedal. This pedal is handmade by Mr. Black in Portland, Oregon, USA.',
+          itemPurchasePrice: 249.00,
+          itemPurchaseDate: '09/24/2016',
+          itemSerialNumber: 'N/A',
+          itemImages: ['test.jpg', 'test2.jpg'],
+          itemDateAdded: '04/12/16',
+          category: 'instruments',
+          itemTags: ['music', 'guitar', 'pedal', 'supermoon', 'mr. black']
+        },
+        {
+          itemID: 1,
+          itemName: 'Thunderclaw Guitar Pedal',
+          itemModelNumber: 'MBSM1487',
+          itemMaker: 'Mr. Black',
+          itemDescription: 'Thunderclaw Highgain Distortion Machine. This pedal is handmade by Mr. Black in Portland, Oregon, USA.',
+          itemPurchasePrice: 249.00,
+          itemPurchaseDate: '09/24/2016',
+          itemSerialNumber: 'N/A',
+          itemImages: ['test.jpg', 'test2.jpg'],
+          itemDateAdded: '04/12/16',
+          category: 'instruments',
+          itemTags: ['music', 'guitar', 'pedal', 'thunderclaw', 'mr. black']
+        }
+      ]
     }
   }
 }
@@ -57,5 +83,8 @@ body {
 #app h1,h2,h3,h4,h5,h6 {
     font-family: 'Raleway', sans-serif;
     font-size: 26px;
+}
+#search {
+  margin-bottom: 20px;
 }
 </style>
