@@ -10,6 +10,7 @@
             :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
         </th>
+        <th v-if="editTable">Edit Item</th>
       </tr>
     </thead>
     <tbody>
@@ -18,8 +19,9 @@
         | filterBy filterKey
         | orderBy sortKey sortOrders[sortKey]">
         <td v-for="key in columns">
-          {{entry[key]}}
+          {{entry[key] | capitalize}}
         </td>
+        <td v-if="editTable"><a href="#"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
       </tr>
     </tbody>
   </table>
@@ -31,7 +33,8 @@ export default {
   props: {
     data: Array,
     columns: Array,
-    filterKey: String
+    filterKey: String,
+    editTable: Boolean
   },
   data () {
     var sortOrders = {}
@@ -65,13 +68,12 @@ body {
 }
 
 table {
-  border: 2px solid #42b983;
-  border-radius: 3px;
+  border: 1px solid #71859D;
   background-color: #fff;
 }
 
 th {
-  background-color: #42b983;
+  background-color: #7F7AA7;
   color: rgba(255,255,255,0.66);
   cursor: pointer;
   -webkit-user-select: none;
@@ -84,8 +86,8 @@ td {
 }
 
 th, td {
-  min-width: 120px;
-  padding: 10px 20px;
+  min-width: 120px !important;
+  padding: 10px 20px !important;
 }
 
 th.active {

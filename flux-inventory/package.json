@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
-    "keen-ui": "^0.8.9",
     "vue": "^1.0.21"
   },
   "devDependencies": {
